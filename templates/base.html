@@ -126,7 +126,11 @@
                             <a class="aa-cart-link" href="#">
                                 <span class="fa fa-shopping-basket"></span>
                                 <span class="aa-cart-title">SHOPPING CART</span>
-                                <span class="aa-cart-notify">2</span>
+                                {% if itc > 0 %}
+                                    <span class="aa-cart-notify">{{ itc }}</span>
+                                {% else %}
+                                    <span class="aa-cart-notify">0</span>
+                                {% endif %}
                             </a>
                         </div>
                         <!-- / cart box -->

@@ -65,7 +65,7 @@
                                                 <td>${{ i.prodt.price }}</td>
                                                 <td><a href="{% url 'addcart' i.prodt.id %}">+</a><br>{{ i.quan }}<br><a
                                                         href="{% url 'cart_decrement' i.prodt.id %}">-</a></td>
-                                                <td>Total</td>
+                                                <td>{{ i.total }}</td>
                                             </tr>
                                         {% endfor %}
                                         <tr>
@@ -88,11 +88,11 @@
                                     <tbody>
                                     <tr>
                                         <th>Subtotal</th>
-                                        <td>$450</td>
+                                        <td>${{ t }}</td>
                                     </tr>
                                     <tr>
                                         <th>Total</th>
-                                        <td>$450</td>
+                                        <td>${{ t }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
