@@ -86,17 +86,14 @@
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
                                 {% if user.is_authenticated %}
-                                <li><a href="">{{ user.username }} </a></li>
-                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    <li><a href="">{{ user.username }} </a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
                                 {% else %}
-                                <li><a href="{% url 'register' %}">Register</a></li>
-                                <li><a href="{% url 'login' %}">Login</a></li>
-                                {#
-                                <li><a data-target="#login-modal" data-toggle="modal" href="login">Login</a></li>
-                                #}
+                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
                                 {% endif %}
-                                <li class="hidden-xs"><a href="">Wishlist</a></li>
-                                <li class="hidden-xs"><a href="">My Cart</a></li>
+                                <li class="hidden-xs"><a href="/">Wishlist</a></li>
+                                <li class="hidden-xs"><a href="/">My Cart</a></li>
                                 <li class="hidden-xs"><a href="{% url 'checkout' %}">Checkout</a></li>
                             </ul>
                         </div>
