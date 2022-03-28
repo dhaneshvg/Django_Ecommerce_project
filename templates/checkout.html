@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- menu -->
+<section id="menu">
+    <div class="container">
+        <div class="menu-area">
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+                            type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!-- Left nav -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        {% for i in ct %}
+                        <li><a href="{{ i.get_url }}">{{ i.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / menu -->
+
+<h1>This is checkout page</h1>
+
+{% endblock content %}

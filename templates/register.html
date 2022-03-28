@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- menu -->
+<section id="menu">
+    <div class="container">
+        <div class="menu-area">
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+                            type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!-- Left nav -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        {% for i in ct %}
+                        <li><a href="{{ i.get_url }}">{{ i.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / menu -->
+
+<!-- register -->
+<section>
+    <div class="signup-form">
+        <div class="container-fluid">
+            <div class="col-md-6">
+                <img height="400" src="{% static 'img/accounts/online_shopping.jpeg' %}" width="625">
+            </div>
+            <div class="col-md-6" style="padding-top: 20px">
+                <form action="register" method="post">
+                    {% csrf_token %}
+                    <h2>Register</h2>
+                    <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6"><input class="form-control" name="firstname" placeholder="First Name"
+                                                         required="required"
+                                                         type="text"></div>
+                            <div class="col-md-6"><input class="form-control" name="lastname" placeholder="Last Name"
+                                                         required="required"
+                                                         type="text"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="email" placeholder="Email" required="required"
+                               type="email">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="username" placeholder="username" required="required"
+                               type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="password1" placeholder="Password" required="required"
+                               type="password">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="password2" placeholder="Confirm Password" required="required"
+                               type="password">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-lg btn-block" type="submit">Register Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            {% for message in messages %}
+            <h3>{{ message }}</h3>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- / register -->
+
+{% endblock content %}

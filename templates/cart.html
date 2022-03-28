@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- menu -->
+<section id="menu">
+    <div class="container">
+        <div class="menu-area">
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!-- Left nav -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        {% for cat in ct %}
+                        <li><a href="{{ cat.get_url }}">{{ cat.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / menu -->
+
+<!-- Cart view section -->
+<section id="cart-view">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-view-area">
+                    <div class="cart-view-table">
+                        <form action="">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in ci %}
+                                    <tr>
+                                        <td><a class="remove" href="#">
+                                            <fa class="fa fa-close"></fa>
+                                        </a></td>
+                                        <td><a href="#"><img alt="img" src="{{i.prodt.img.url}}"></a></td>
+                                        <td><a class="aa-cart-title" href="#">{{ i.prodt.name }}</a></td>
+                                        <td>${{ i.prodt.price }}</td>
+
+                                        </td>
+
+                                        <td>$250</td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <td class="aa-cart-view-bottom" colspan="6">
+                                            <div class="aa-cart-coupon">
+                                                <input class="aa-coupon-code" placeholder="Coupon" type="text">
+                                                <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
+                                            </div>
+                                            <input class="aa-cart-view-btn" type="submit" value="Update Cart">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <!-- Cart Total view -->
+                        <div class="cart-view-total">
+                            <h4>Cart Totals</h4>
+                            <table class="aa-totals-table">
+                                <tbody>
+                                <tr>
+                                    <th>Subtotal</th>
+                                    <td>$450</td>
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <td>$450</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <a class="aa-cart-view-btn" href="#">Proced to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Cart view section -->
+
+{% endblock content %}

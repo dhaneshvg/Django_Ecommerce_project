@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- menu -->
+<section id="menu">
+    <div class="container">
+        <div class="menu-area">
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+                            type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!-- Left nav -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        {% for i in ct %}
+                        <li><a href="{{ i.get_url }}">{{ i.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / menu -->
+
+<!-- login -->
+<section>
+    <div class="signup-form">
+        <div class="container-fluid">
+            <div class="col-md-6" style="padding-top: 20px; padding-bottom: 20px;">
+                <img height="400" src="{% static 'img/accounts/online_shopping.jpeg' %}" width="625">
+            </div>
+            <div class="col-md-6" style="padding-top: 20px">
+                <form action="login" method="post">
+                    {% csrf_token %}
+                    <h2>Login</h2>
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="username" placeholder="username" required="required"
+                               type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="password" placeholder="Password" required="required"
+                               type="password">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-lg btn-block" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% for message in messages %}
+    <h3>{{ message }}</h3>
+    {% endfor %}
+    </div>
+</section>
+<!-- / login -->
+
+{% endblock content %}
