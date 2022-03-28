@@ -31,9 +31,10 @@ def home(request, c_slug=None):
 def prodDetails(request, c_slug, product_slug):
     try:
         prod = product.objects.get(category__slug=c_slug, slug=product_slug)
+        cat = categ.objects.all()
     except Exception as e:
         raise e
-    return render(request, 'details.html', {'pr': prod})
+    return render(request, 'details.html', {'pr': prod, 'ct': cat})
 
 
 def searching(request):

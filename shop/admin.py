@@ -14,8 +14,8 @@ admin.site.register(categ, CatAdmin)
 
 
 class ProdAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'stock', 'img', 'available']
-    list_editable = ['price', 'stock', 'available']
+    list_display = ['name', 'slug', 'old_price', 'price', 'stock', 'img', 'available']
+    list_editable = ['old_price', 'price', 'stock', 'available']
     prepopulated_fields = {"slug": ('name',)}
 
 

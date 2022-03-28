@@ -57,13 +57,11 @@
                                                     <img alt="polo shirt img" height="300px" src="{{ i.img.url }}"
                                                          width="250px">
                                                 </a>
-                                                <a class="aa-add-card-btn" href="#">
-                                                    <span class="fa fa-shopping-cart"></span>Add To Cart
-                                                </a>
                                                 <figcaption>
                                                     <h4 class="aa-product-title"><a href="#">{{ i.name }}</a></h4>
                                                     <span class="aa-product-price">${{ i.price }}</span><span
-                                                        class="aa-product-price"><del>$65.50</del></span>
+                                                        class="aa-product-price"><del>${{ i.old_price }}</del></span>
+                                                    <p>{{ i.desc }}</p>
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-product-hvr-content">

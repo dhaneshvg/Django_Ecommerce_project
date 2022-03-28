@@ -29,6 +29,7 @@ class product(models.Model):
     stock = models.IntegerField()
     available = models.BooleanField()
     price = models.IntegerField()
+    old_price = models.IntegerField()
     category = models.ForeignKey(categ, on_delete=models.CASCADE)
 
     def get_url(self):
